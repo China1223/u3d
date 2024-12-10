@@ -12,12 +12,15 @@ public class GameTimer : NetworkBehaviour
     private NetworkVariable<float> gameTimer = new NetworkVariable<float>(30f);
 
     public override void OnNetworkSpawn(){
+        Debug.Log("OnNetworkSpawn");
+
         base.OnNetworkSpawn();
         gameTimer.OnValueChanged += gameTimer_OnValueChanged;
     }
 
     private void gameTimer_OnValueChanged(float prevVal, float newValue){
-        uiLabel.text = "Timer: "+newValue+" sec Remaining";
+        Debug.Log("gameTimer_OnValueChanged");
+        uiLabel.text = "Timer11: "+newValue+" sec Remaining";
     }
 
     void Update(){
@@ -34,6 +37,7 @@ public class GameTimer : NetworkBehaviour
 
     [Rpc(SendTo.ClientsAndHost)]
     void TimerExpiredClientRpc(String message){
+        Debug.Log("Timer Expired");
         gameTimer.OnValueChanged -= gameTimer_OnValueChanged;
         uiLabel.text = message;
     }
