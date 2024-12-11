@@ -41,27 +41,52 @@ public class FieldAct : NetworkBehaviour
     {
         if (other.CompareTag("detector"))
         {
-            if (!textBoard.activeSelf)
-            {
-                textBoard.SetActive(true); // 如果未激活，激活textBoard
-                UpdateText();             // 更新文字内容
-            }
-            else
-            {
-                Debug.Log("textBoard 已经激活，无需重复设置内容。");
-            }
+            HandleDetectorTrigger();
         }
 
         if (other.CompareTag("BocharBox"))
         {
-            Debug.Log("BocharBox === Trigger Enter: BocharBox");
-            // 调用 BiocharManager 的 Work 方法，仅当是本客户端的对象时执行
+            HandleBocharBoxTrigger(other);
+        }
+    }
+
+    private void HandleDetectorTrigger()
+    {
+        if (!textBoard.activeSelf)
+        {
+            textBoard.SetActive(true); // 如果未激活，激活textBoard
+            UpdateText();             // 更新文字内容
+        }
+        else
+        {
+            Debug.Log("textBoard 已经激活，无需重复设置内容。");
+        }
+    }
+
+    private void HandleBocharBoxTrigger(Collider other)
+    {
+        Debug.Log("BocharBox === Trigger Enter: BocharBox");
+        if (textBoard.activeSelf)
+        {
+            // 检查是否是当前客户端的对象
             if (IsOwner)
             {
                 BiocharManager biocharManager = other.GetComponent<BiocharManager>();
                 if (biocharManager != null)
                 {
-                    biocharManager.Work();
+                    if (phValue.Value <= 7)
+                    {
+                        biocharManager.Work();
+                        if (IsServer)
+                        {
+                            phValue.Value += 1; // 服务器端增加phValue值
+                        }
+                        UpdateText(); // 更新显示内容
+                    }
+                    else
+                    {
+                        Debug.Log("phValue 超过允许值，未执行Work方法。");
+                    }
                 }
                 else
                 {
@@ -72,6 +97,10 @@ public class FieldAct : NetworkBehaviour
             {
                 Debug.Log("不是本客户端的对象，忽略。");
             }
+        }
+        else
+        {
+            Debug.Log("textBoard 未激活，无需重复设置内容。");
         }
     }
 
@@ -95,45 +124,3 @@ public class FieldAct : NetworkBehaviour
         UpdateText(); // 当值变化时更新文字内容
     }
 }
-
-
-// public class FieldAct : MonoBehaviour
-// {
-
-//     public GameObject textBoard;
-//     public TextMeshPro textMeshPro;
-
-
-//     void Start()
-//     {
-//         // 确保组件已绑定
-//         if (textMeshPro != null)
-//         {
-//             // 修改文字内容
-//             textMeshPro.text = "新文字内容";
-//         }
-//         else
-//         {
-//             Debug.LogError("未设置TextMeshPro组件！");
-//         }
-//     }
-//     // 当其他Collider进入触发器时调用
-//     private void OnTriggerEnter(Collider other)
-//     {
-//         Debug.Log("Trigger Enter: ");
-//         if (other.gameObject.tag == "detector")
-//         {
-//             textBoard.SetActive(true);
-//             float newValue = Random.Range(10, 20);
-//             textMeshPro.text = "ph : "+newValue+" ";
-//             Debug.Log("detector === Trigger Enter: detector ");
-//         }
-
-//     }
-
-
-//     void Update()
-//     {
-        
-//     }
-// }
