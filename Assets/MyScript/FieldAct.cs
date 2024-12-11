@@ -49,7 +49,6 @@ public class FieldAct : NetworkBehaviour
             HandleBocharBoxTrigger(other);
         }
     }
-
     private void HandleDetectorTrigger()
     {
         if (!textBoard.activeSelf)
@@ -62,7 +61,6 @@ public class FieldAct : NetworkBehaviour
             Debug.Log("textBoard 已经激活，无需重复设置内容。");
         }
     }
-
     private void HandleBocharBoxTrigger(Collider other)
     {
         Debug.Log("BocharBox === Trigger Enter: BocharBox");
