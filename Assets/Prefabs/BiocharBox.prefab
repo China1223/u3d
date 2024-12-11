@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf032a184efef5d4fb3e69c99b461e16, type: 3}
+      propertyPath: m_TagString
+      value: BocharBox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -246,9 +250,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8111007112224321908}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf032a184efef5d4fb3e69c99b461e16, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5881034825497922244}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf032a184efef5d4fb3e69c99b461e16, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7480112827195593643}
@@ -263,20 +264,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cf032a184efef5d4fb3e69c99b461e16, type: 3}
   m_PrefabInstance: {fileID: 4808586160854163345}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5881034825497922244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655094459832951488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f4e2eb1195d958418d4b16f9663e728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detector: {fileID: 0}
-  biochar: {fileID: 0}
 --- !u!65 &7480112827195593643
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -25,11 +25,19 @@ public class pickObject : MonoBehaviour
     {
         
     }
+    // # 触碰到物体时，获取工具1
+    // # 触碰到物体是，获取工具2
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter");
         if(other.gameObject.tag == "Coin"){
             Debug.Log("Coin");
+            // Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy");
             // Destroy(other.gameObject);
             other.gameObject.SetActive(false);
         }
