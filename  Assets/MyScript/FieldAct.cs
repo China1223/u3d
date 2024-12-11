@@ -15,10 +15,7 @@ public class FieldAct : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server // 仅服务器端可写
     );
-   public override void OnNetworkSpawn()
-    {
-        phValue.OnValueChanged += OnPhValueChanged;
-    }
+
     void Start()
     {
         if (IsServer)

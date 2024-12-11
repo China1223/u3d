@@ -15,6 +15,11 @@ public class BiocharManager : NetworkBehaviour
         NetworkVariableWritePermission.Server // 仅服务器端可写
     );
 
+    public override void OnNetworkSpawn()
+    {
+        value.OnValueChanged += OnValueChanged;
+    }
+
     void Start()
     {
         if (textMeshPro != null)
@@ -34,25 +39,37 @@ public class BiocharManager : NetworkBehaviour
     // 被其他GameObject调用
     public void Work()
     {
-        if (!IsServer)
-        {
-            Debug.LogWarning("Work函数只能在服务器端调用！");
-            return;
-        }
+        // if (!IsServer)
+        // {
+        //     Debug.LogWarning("Work函数只能在服务器端调用！");
+        //     return;
+        // }
 
         // 每次调用减少value
         if (value.Value > 0)
         {
-            value.Value--;
+            Debug.Log($"BiocharManager Work called with value: {value.Value}");
+            // value.Value--;
+            ResetValueServerRpc(value.Value-1);
             UpdateText();
 
             if (value.Value == 0)
             {
                 // 隐藏GameObject并重置value为5
                 gameObject.SetActive(false);
-                value.Value = 5;
+                // value.Value = 5;
+                ResetValueServerRpc(5);
+
             }
         }
+    }
+
+    [ServerRpc]
+    private void ResetValueServerRpc(int newValue)
+    {
+        Debug.Log($"BiocharManager ResetValueServerRpc called with newValue: {newValue}");
+        value.Value = newValue;
+
     }
 
     // 更新TextMeshPro显示
@@ -60,13 +77,14 @@ public class BiocharManager : NetworkBehaviour
     {
         if (textMeshPro != null)
         {
+            Debug.Log($"BiocharManager UpdateText called with value: {value.Value}");
             textMeshPro.text = $"Biochar: {value.Value}";
         }
     }
 
     private void OnValueChanged(int oldValue, int newValue)
     {
-        Debug.Log($"Value发生变化: {oldValue} -> {newValue}");
+        Debug.Log($"Biochar  Value发生变化: {oldValue} -> {newValue}");
         UpdateText();
     }
 
