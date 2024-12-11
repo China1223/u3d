@@ -21,6 +21,7 @@ public class Pickbiochar  : MonoBehaviour
         // GetComponent<Renderer>().material = currentMaterial;
         
     }
+    // 如果(other.gameObject.tag == "BocharBox")且 phValue 小于7则，减少boxValue-=1的值并phValue +=1，boxValue的为3的整数，如果boxValue<=0则
         void OnMouseEnter()
     {
         Debug.Log("Pickbiochar Mouse Enter");
