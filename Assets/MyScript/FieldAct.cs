@@ -15,9 +15,17 @@ public class FieldAct : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server // 仅服务器端可写
     );
+    private NetworkVariable<bool> networkIsActive = new NetworkVariable<bool>(false);
+
    public override void OnNetworkSpawn()
     {
         phValue.OnValueChanged += OnPhValueChanged;
+        networkIsActive.OnValueChanged += OnNetworkIsActiveChanged;
+
+    }
+    private void OnNetworkIsActiveChanged(bool oldValue, bool newValue)
+    {
+        textBoard.SetActive(newValue);
     }
     void Start()
     {
@@ -25,12 +33,15 @@ public class FieldAct : NetworkBehaviour
         {
             // 服务器端初始化phValue
             phValue.Value = Random.Range(1, 6);
-            UpdateText(); 
-            textBoard.SetActive(false);
-        }
 
+            // networkIsActive.Value = false;
+
+        }
+  
+        UpdateText(); 
+        textBoard.SetActive(networkIsActive.Value );
         // 监听phValue变化
-        phValue.OnValueChanged += OnPhValueChanged;
+        // phValue.OnValueChanged += OnPhValueChanged;
     }
 
     private void OnDestroy()
@@ -56,13 +67,25 @@ public class FieldAct : NetworkBehaviour
     {
         if (!textBoard.activeSelf)
         {
-            textBoard.SetActive(true); // 如果未激活，激活textBoard
-            UpdateText();             // 更新文字内容
+            if (IsServer){
+                networkIsActive.Value = true;
+                // 如果未激活，激活textBoard
+            }else if (IsClient){
+                setTextBoardActiveServerRpc(true);
+            }
+            // textBoard.SetActive(networkIsActive.Value);
+            // UpdateText();             // 更新文字内容
         }
         else
         {
             Debug.Log("textBoard 已经激活，无需重复设置内容。");
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void setTextBoardActiveServerRpc(bool active)
+    {
+        networkIsActive.Value = active;
     }
     private void HandleBocharBoxTrigger(Collider other)
     {
@@ -70,42 +93,39 @@ public class FieldAct : NetworkBehaviour
         if (textBoard.activeSelf)
         {
             // 检查是否是当前客户端的对象
-            if (IsOwner)
+
+            BiocharManager biocharManager = other.GetComponent<BiocharManager>();
+            if (biocharManager != null)
             {
-                BiocharManager biocharManager = other.GetComponent<BiocharManager>();
-                if (biocharManager != null)
+                if (phValue.Value <= 7)
                 {
-                    if (phValue.Value <= 7)
+                    biocharManager.Work();
+                    if (IsClient)
                     {
-                        biocharManager.Work();
-                        if (IsServer)
-                        {
-                            // phValue.Value += 1; // 服务器端增加phValue值
-                            PHValueServerRpc(phValue.Value+1);
-                        }
-                        UpdateText(); // 更新显示内容
+                        // phValue.Value += 1; // 服务器端增加phValue值
+                        PHValueServerRpc(phValue.Value+1);
+                    }else if (IsServer){
+                        phValue.Value += 1; // 服务器端增加phValue值
                     }
-                    else
-                    {
-                        Debug.Log("phValue 超过允许值，未执行Work方法。");
-                    }
+                    UpdateText(); // 更新显示内容
                 }
                 else
                 {
-                    Debug.LogError("未找到 BiocharManager 组件！");
+                    Debug.Log("phValue 超过允许值，未执行Work方法。");
                 }
             }
             else
             {
-                Debug.Log("不是本客户端的对象，忽略。");
+                Debug.LogError("未找到 BiocharManager 组件！");
             }
+
         }
         else
         {
             Debug.Log("textBoard 未激活，无需重复设置内容。");
         }
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     // private void ServerRpcSetPhValueServerRpc(int newValue)
     private void PHValueServerRpc(int newValue)
     {

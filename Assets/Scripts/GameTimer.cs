@@ -9,7 +9,7 @@ public class GameTimer : NetworkBehaviour
 {
     [SerializeField]
     private TMP_Text uiLabel;
-    private NetworkVariable<float> gameTimer = new NetworkVariable<float>(30f);
+    private NetworkVariable<float> gameTimer = new NetworkVariable<float>(3000f);
 
     public override void OnNetworkSpawn(){
         Debug.Log("OnNetworkSpawn");
@@ -19,8 +19,8 @@ public class GameTimer : NetworkBehaviour
     }
 
     private void gameTimer_OnValueChanged(float prevVal, float newValue){
-        Debug.Log("gameTimer_OnValueChanged");
-        uiLabel.text = "Timer11: "+newValue+" sec Remaining";
+        // Debug.Log("gameTimer_OnValueChanged");
+        uiLabel.text = "Timer: "+newValue+" sec Remaining";
     }
 
     void Update(){

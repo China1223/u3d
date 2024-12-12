@@ -50,7 +50,11 @@ public class BiocharManager : NetworkBehaviour
         {
             Debug.Log($"BiocharManager Work called with value: {value.Value}");
             // value.Value--;
-            ResetValueServerRpc(value.Value-1);
+            if(IsServer){
+                value.Value-- ;
+            }else if(IsClient){
+                ResetValueServerRpc(value.Value-1);
+            }
             UpdateText();
 
             if (value.Value == 0)
