@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: SnailMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: f244e67d756054d0c897e8bdd6a56c4d, type: 2}
+    - target: {fileID: 13700000, guid: f287f20a7c5524b458318906550962f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 337db86bc8d6a4e4ea17c01dd9bac9ad, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: f287f20a7c5524b458318906550962f4, type: 3}
     - {fileID: 6500000, guid: f287f20a7c5524b458318906550962f4, type: 3}
@@ -3361,7 +3365,7 @@ Transform:
   m_GameObject: {fileID: 322846253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.98, y: 0, z: 13.52}
+  m_LocalPosition: {x: -4.98, y: 1.54, z: 29.851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3623,14 +3627,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369326523}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.89, y: 0, z: 10.59}
+  m_LocalRotation: {x: -0, y: -0.6541403, z: -0, w: 0.7563733}
+  m_LocalPosition: {x: -4.2989464, y: 0.533, z: 23.987396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1339100164}
   m_Father: {fileID: 872171553}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -81.709, z: 0}
 --- !u!65 &369326525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3750,6 +3754,10 @@ PrefabInstance:
       propertyPath: SnailMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 2d5b7b2cb17b8411c967d12d79d6fb14, type: 2}
+    - target: {fileID: 13700000, guid: f287f20a7c5524b458318906550962f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 337db86bc8d6a4e4ea17c01dd9bac9ad, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: f287f20a7c5524b458318906550962f4, type: 3}
     - {fileID: 6500000, guid: f287f20a7c5524b458318906550962f4, type: 3}
@@ -4323,14 +4331,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511529720}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: 0, z: 10.59}
+  m_LocalRotation: {x: -0, y: -0.8755812, z: -0, w: 0.48307103}
+  m_LocalPosition: {x: -7.4418645, y: 0.6919999, z: 21.18116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1767496922}
   m_Father: {fileID: 872171553}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -122.228, z: 0}
 --- !u!65 &511529722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6415,6 +6423,10 @@ PrefabInstance:
       propertyPath: SnailMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 337db86bc8d6a4e4ea17c01dd9bac9ad, type: 2}
+    - target: {fileID: 13700000, guid: f287f20a7c5524b458318906550962f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d5b7b2cb17b8411c967d12d79d6fb14, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: f287f20a7c5524b458318906550962f4, type: 3}
     - {fileID: 6500000, guid: f287f20a7c5524b458318906550962f4, type: 3}
@@ -9392,14 +9404,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260425013}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.89, y: 0, z: 10.59}
+  m_LocalRotation: {x: -0, y: 0.922685, z: -0, w: 0.3855546}
+  m_LocalPosition: {x: -11.560086, y: 0.059999943, z: 15.19363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 396209032}
   m_Father: {fileID: 872171553}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 134.644, z: 0}
 --- !u!65 &1260425015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12519,7 +12531,7 @@ Transform:
   m_GameObject: {fileID: 1645654795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.89, y: 0, z: 10.59}
+  m_LocalPosition: {x: -8.42, y: 0.56, z: 20.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13061,6 +13073,10 @@ PrefabInstance:
       propertyPath: SnailMaterials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 337db86bc8d6a4e4ea17c01dd9bac9ad, type: 2}
+    - target: {fileID: 13700000, guid: f287f20a7c5524b458318906550962f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e80378fc6c5a461382a65d49f35339b, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: f287f20a7c5524b458318906550962f4, type: 3}
     - {fileID: 6500000, guid: f287f20a7c5524b458318906550962f4, type: 3}
@@ -13543,14 +13559,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824012655}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.89, y: 0, z: 10.59}
+  m_LocalRotation: {x: -0, y: -0.6778571, z: -0, w: 0.7351937}
+  m_LocalPosition: {x: -3.8435724, y: 0.9319999, z: 27.359135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 431236120}
   m_Father: {fileID: 872171553}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -85.353, z: 0}
 --- !u!65 &1824012657
 BoxCollider:
   m_ObjectHideFlags: 0
