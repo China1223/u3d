@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
             if (collider.CompareTag("NetBag1"))
             {
                 // Destroy(collider.gameObject);
-                collider.gameObject.SetActive(false);
+                // collider.gameObject.SetActive(false);
                 hasNetBag = true;
                 Netbag.SetActive(true);
                 detector.SetActive(false);
@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (collider.CompareTag("Snail") && hasNetBag)
             {
-                Destroy(collider.gameObject);
+                // Destroy(collider.gameObject);
+                collider.gameObject.SetActive(false);
                 //hasNetBag = false;
                                 FindObjectOfType<ProgressBar>().woniu += 1;
                 //Netbag.SetActive(false);

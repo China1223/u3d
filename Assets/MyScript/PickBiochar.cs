@@ -16,7 +16,7 @@ public class Pickbiochar  : MonoBehaviour
 
         detector.SetActive(false);
         biochar.SetActive(true);
-        Netbag.SetActive(true);
+        Netbag.SetActive(false);
     }
    
     void Update()
