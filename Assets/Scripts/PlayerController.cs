@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            Debug.Log("collider.gameObject.name");
-            Debug.Log(collider.gameObject.name);
-            Debug.Log(collider.gameObject.tag);
+            // Debug.Log("collider.gameObject.name");
+            // Debug.Log(collider.gameObject.name);
+            // Debug.Log(collider.gameObject.tag);
             if (collider.CompareTag("NetBag1"))
             {
                 // Destroy(collider.gameObject);

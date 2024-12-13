@@ -49,29 +49,42 @@ public class BiocharManager : NetworkBehaviour
         if (value.Value > 0)
         {
             Debug.Log($"BiocharManager Work called with value: {value.Value}");
+            Debug.Log($"BiocharManager IsServer: {this.IsServer}");
+            Debug.Log($"BiocharManager IsClient: {this.IsClient}");
             // value.Value--;
-            if(IsServer){
+            if(this.IsServer){
+                Debug.Log($"BiocharManager IsServer value: {value.Value}");
                 value.Value-- ;
-            }else if(IsClient){
+            }else if(this.IsClient){
+                Debug.Log($"BiocharManager IsClient value: {value.Value}");
                 ResetValueServerRpc(value.Value-1);
+            }else{
+                Debug.Log($"BiocharManager IsServer: {this.IsServer}");
+                Debug.Log($"BiocharManager IsClient: {this.IsClient}");
+                Debug.Log($"BiocharManager else value: {value.Value}");
+                value.Value-- ;
             }
-            UpdateText();
+            
 
             if (value.Value == 0)
             {
                 // 隐藏GameObject并重置value为5
                 gameObject.SetActive(false);
                 // value.Value = 5;
-                ResetValueServerRpc(5);
-
+                if(this.IsClient){
+                    ResetValueServerRpc(5);
+                }else{
+                    value.Value=5;
+                }
             }
+            UpdateText();
         }
     }
 
     [ServerRpc]
     private void ResetValueServerRpc(int newValue)
     {
-        Debug.Log($"BiocharManager ResetValueServerRpc called with newValue: {newValue}");
+        Debug.Log($"BiocharManager ==== ResetValueServerRpc called with newValue: {newValue}");
         value.Value = newValue;
 
     }

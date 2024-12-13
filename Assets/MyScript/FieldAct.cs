@@ -67,10 +67,14 @@ public class FieldAct : NetworkBehaviour
     {
         if (!textBoard.activeSelf)
         {
-            if (IsServer){
+            Debug.Log($"HandleDetectorTrigger IsServer: {IsServer}");
+            Debug.Log($"HandleDetectorTrigger IsClient: {IsClient}");            
+            Debug.Log($"HandleDetectorTrigger thisIsServer: {this.IsServer}");
+            Debug.Log($"HandleDetectorTrigger thisIsClient: {this.IsClient}");
+            if (this.IsServer){
                 networkIsActive.Value = true;
                 // 如果未激活，激活textBoard
-            }else if (IsClient){
+            }else if (this.IsClient){
                 setTextBoardActiveServerRpc(true);
             }
             // textBoard.SetActive(networkIsActive.Value);
