@@ -6,6 +6,7 @@ public class PickPHDetector : MonoBehaviour
 {
     public GameObject detector;
     public GameObject biochar;
+    public GameObject Netbag;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class PickPHDetector : MonoBehaviour
 
         detector.SetActive(true);
         biochar.SetActive(false);
+        Netbag.SetActive(false);
 
     }
 }
