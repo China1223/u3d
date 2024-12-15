@@ -13,6 +13,9 @@ public class SnailController : NetworkBehaviour
     {
         // 订阅 NetworkVariable 的值变化事件
         networkCakeflag.OnValueChanged += OnCakeflagChanged;
+        if (progressBar.model==1){
+            setCakeflagServerRpc(true);
+        }
     }
 
     private void OnDestroy()
@@ -100,6 +103,7 @@ public class SnailController : NetworkBehaviour
             if (progressBar!=null)
             {
                 progressBar.woniu+=1;
+                gameObject.SetActive(false);
             }
             // 同步蜗牛的消失
             CaptureSnailServerRpc();
@@ -169,8 +173,11 @@ public class SnailController : NetworkBehaviour
         {
             Debug.Log("Snail eats cake!");
             cake.gameObject.SetActive(false);
-            // 蜗牛恢复理智
-            // setCakeflagServerRpc(false);
+            if (progressBar.model==3){
+                // 蜗牛恢复理智
+                setCakeflagServerRpc(false);
+            }
+
         }
     }
     private void MoveTowardsPlayer()
