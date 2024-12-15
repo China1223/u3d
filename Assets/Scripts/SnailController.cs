@@ -1,23 +1,42 @@
 using UnityEngine;
+using Unity.Netcode; 
 
-public class SnailController : MonoBehaviour
+public class SnailController : NetworkBehaviour
 {
     public float moveSpeed = 2f;
     public Transform player;
+    
+    public override void OnNetworkSpawn()
+    {
 
+        base.OnNetworkSpawn();
+    }
+    public override void OnNetworkDespawn()
+    {
+        // When non-authority instances finally despawn,
+        // the explosion FX will begin playing.
+ 
+        base.OnNetworkDespawn();
+    }
+    private void OnExplosionFxChanged(NetworkBehaviourReference previous, NetworkBehaviourReference current)
+    {
+        // If possible, get the ExplosionFx component
+    }
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         AdjustHeightToGround();
+
         if (distanceToPlayer <= 5f)
         {
             MoveTowardsPlayer();
         }
+
     }
 
     private void MoveTowardsPlayer()
