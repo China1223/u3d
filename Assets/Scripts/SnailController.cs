@@ -6,6 +6,7 @@ public class SnailController : NetworkBehaviour
     public float moveSpeed = 1f;
     public float detectionRange = 3f;
     public Transform player;
+    public ProgressBar progressBar;
     private NetworkVariable<bool> networkCakeflag = new NetworkVariable<bool>(false);
 
     private void Start()
@@ -96,6 +97,10 @@ public class SnailController : NetworkBehaviour
         {
             // 蜗牛被捕捉
             Debug.Log("Snail is caught!");
+            if (progressBar!=null)
+            {
+                progressBar.woniu+=1;
+            }
             // 同步蜗牛的消失
             CaptureSnailServerRpc();
             // 当前游戏对象

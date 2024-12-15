@@ -2106,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2411490682867712036, guid: dbf36d087a27cb440b2dd419655e1926, type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: ProgressBar
       objectReference: {fileID: 0}
     - target: {fileID: 3544994145409614672, guid: dbf36d087a27cb440b2dd419655e1926, type: 3}
       propertyPath: m_Pivot.x
@@ -10867,6 +10867,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3544994145409614672, guid: dbf36d087a27cb440b2dd419655e1926, type: 3}
   m_PrefabInstance: {fileID: 164489616}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1543912068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9170444188173863568, guid: dbf36d087a27cb440b2dd419655e1926, type: 3}
+  m_PrefabInstance: {fileID: 164489616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90770c24d4379434b9e88b8ea38b8e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1547137753
 GameObject:
   m_ObjectHideFlags: 0
@@ -15115,6 +15126,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 3887124131159547433, guid: 75b4287e006a9824b9fafdd2265edee0, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 3887124131159547433, guid: 75b4287e006a9824b9fafdd2265edee0, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 4509303286989029087, guid: 75b4287e006a9824b9fafdd2265edee0, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3316859680
@@ -15144,6 +15163,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 113819115580758674, guid: bb37da0ecff21184d9286d34b4f16018, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 113819115580758674, guid: bb37da0ecff21184d9286d34b4f16018, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 3957036616703837425, guid: bb37da0ecff21184d9286d34b4f16018, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4418645
@@ -15384,6 +15411,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 2259429232385694891, guid: 5d633c8d8c0d97b489f93a02d751d17b, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 2259429232385694891, guid: 5d633c8d8c0d97b489f93a02d751d17b, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 4806605479010891111, guid: 5d633c8d8c0d97b489f93a02d751d17b, type: 3}
       propertyPath: m_Name
       value: Snail (1)
@@ -15413,6 +15448,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 2190006055870914732, guid: fd9284867794fe9499fe572d849f1f20, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 2190006055870914732, guid: fd9284867794fe9499fe572d849f1f20, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 4395068892103231176, guid: fd9284867794fe9499fe572d849f1f20, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.42
@@ -15490,6 +15533,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 6969993361913291517, guid: dbdc5938a780e0e458d9c9793f357d0c, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 6969993361913291517, guid: dbdc5938a780e0e458d9c9793f357d0c, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 7191479907623812429, guid: dbdc5938a780e0e458d9c9793f357d0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8435724
@@ -15587,6 +15638,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 65284394}
+    - target: {fileID: 5706833775851966072, guid: ab2b89cd998d5fd4ab447fbb044012b4, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 1543912068}
+    - target: {fileID: 5706833775851966072, guid: ab2b89cd998d5fd4ab447fbb044012b4, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 1543912068}
     - target: {fileID: 6596905621144829780, guid: ab2b89cd998d5fd4ab447fbb044012b4, type: 3}
       propertyPath: m_Name
       value: Snail (5)
