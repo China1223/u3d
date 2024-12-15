@@ -10,6 +10,11 @@ TagManager:
   - NetBag
   - Snail
   - NetBag1
+  - cake
+  - CakeSpace
+  - DetectorSpace
+  - NetBagSpace
+  - BiocharSpace
   layers:
   - Default
   - TransparentFX
